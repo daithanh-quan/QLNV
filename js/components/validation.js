@@ -86,6 +86,7 @@ function validation() {
       return false
     }
   }
+  //kiểm tra ngày
   this.checkDate = function (inputValue, spanID, message) {
     let regex = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/
     if (regex.test(inputValue)) {
@@ -99,7 +100,8 @@ function validation() {
   }
   //kiểm tra lương cơ bản, kiểm tra thời gian làm việc 
   this.checkSalaryAndTime = function (inputValue, spanID, message, value1, value2) {
-    if (inputValue < value1 || inputValue > value2) {
+    let regex = /^[0-9]+$/
+    if (inputValue < value1 || inputValue > value2 && regex.test(inputValue)) {
       document.getElementById(spanID).innerHTML = message
       document.getElementById(spanID).style.display = 'block'
       return false
