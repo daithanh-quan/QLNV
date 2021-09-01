@@ -144,7 +144,6 @@ function handleAddUser() {
   let inputPosition = getELE('chucvu').value
   let inputTimeJob = getELE('gioLam').value
 
-
   let isNewValid2 = isValid()
   let isNewValid1 = isValidAccount()
   if (isNewValid1 && isNewValid2) {
@@ -168,6 +167,8 @@ getELE('btnThemNV').addEventListener('click', handleAddUser)
 function resetForm() {
   let inputReset = document.querySelector('form[role="form"]').reset()
   getELE('tknv').disabled = false
+  getELE('btnCapNhat').disabled = true
+  getELE('btnThemNV').disabled = false
   let spanIDs = document.querySelectorAll('.sp-thongbao')
   spanIDs.forEach(spanID => spanID.innerHTML = '')
   if (!inputReset) return
@@ -187,6 +188,8 @@ function handleSee(account) {
   let index = listTableEmployee.findEmploy(account)
   let listTable = listTableEmployee.arrayEmployees[index]
   getELE('tknv').disabled = true
+  getELE('btnCapNhat').disabled = false
+  getELE('btnThemNV').disabled = true
   getELE('tknv').value = listTable.account
   getELE('name').value = listTable.name
   getELE('email').value = listTable.email
