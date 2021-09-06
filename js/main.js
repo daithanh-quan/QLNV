@@ -200,6 +200,7 @@ function handleSee(account) {
   getELE('gioLam').value = listTable.timeJob
   let spanIDs = document.querySelectorAll('.sp-thongbao')
   spanIDs.forEach(spanID => spanID.innerHTML = '')
+
 }
 //cập nhập nhân viên
 function handleUpdate() {
@@ -224,10 +225,11 @@ function handleUpdate() {
     renderTableEmployees(listTableEmployee.arrayEmployees)
     setLocal()
     successResult('Cập nhập nhân viên thành công')
+    getELE('btnDong').click()
+
   }
 }
 getELE('btnCapNhat').addEventListener('click', handleUpdate)
-
 // tìm kiếm nhân viên
 
 function searchFromRating() {
