@@ -33,17 +33,11 @@ let listTableEmployee = new listEmployee()
 let valid = new validation()
 //biến text thành công khi thêm nhân viên/cập nhập nhân viên
 function successResult(text) {
-  let successText = document.createElement('p')
-  document.querySelector('form[role="form"]').appendChild(successText)
-  successText.style.color = 'green'
-  successText.style.textAlign = 'center'
-  successText.innerHTML = text
-  return setInterval(() => {
-    successText.innerHTML = ""
-  }, 1000)
+  setTimeout(() => {
+    alert(text)
+  }, 200);
+  getELE('btnDong').click()
 }
-
-
 // hàm lấy lấy các element trong html
 function getELE(value) {
   return document.getElementById(value)
@@ -59,9 +53,9 @@ function renderTableEmployees(array) {
       <td>${item.position}</td>
       <td>${item.totalSalary}</td>
       <td>${item.ratingEmployee}</td>
-      <td class="d-inline-block" >
+      <td class="d-flex" style="gap:0 5px" >
       <button class="btn btn-danger  " onclick="handleDelete('${item.account}')">Xóa</button>
-      <button class="btn btn-info mt-2 " onclick="handleSee('${item.account}')"  data-toggle="modal"
+      <button class="btn btn-info  " onclick="handleSee('${item.account}')"  data-toggle="modal"
                     data-target="#myModal" >Xem</button>
       </td>
     </tr>`
@@ -132,7 +126,7 @@ function isValidAccount() {
 
 
 
-// hàm xử lý thêm người dùng
+// hàm xử lý thêm nhân viên
 function handleAddUser() {
   //tạo biến lấy các giá trị người dùng nhập vao khi click
   let inputAccount = getELE('tknv').value
@@ -158,6 +152,7 @@ function handleAddUser() {
     renderTableEmployees(listTableEmployee.arrayEmployees)
     document.querySelector('form[role="form"]').reset()
     successResult('Thêm nhân viên thành công')
+    getELE('btnDong').click()
   }
 
 }
@@ -167,8 +162,8 @@ getELE('btnThemNV').addEventListener('click', handleAddUser)
 function resetForm() {
   let inputReset = document.querySelector('form[role="form"]').reset()
   getELE('tknv').disabled = false
-  getELE('btnCapNhat').disabled = true
-  getELE('btnThemNV').disabled = false
+  getELE('btnCapNhat').style.display = "none"
+  getELE('btnThemNV').style.display = "block"
   let spanIDs = document.querySelectorAll('.sp-thongbao')
   spanIDs.forEach(spanID => spanID.innerHTML = '')
   if (!inputReset) return
@@ -187,9 +182,9 @@ function handleDelete(account) {
 function handleSee(account) {
   let index = listTableEmployee.findEmploy(account)
   let listTable = listTableEmployee.arrayEmployees[index]
+  getELE('btnCapNhat').style.display = "block"
   getELE('tknv').disabled = true
-  getELE('btnCapNhat').disabled = false
-  getELE('btnThemNV').disabled = true
+  getELE('btnThemNV').style.display = "none"
   getELE('tknv').value = listTable.account
   getELE('name').value = listTable.name
   getELE('email').value = listTable.email
@@ -224,10 +219,9 @@ function handleUpdate() {
     //render ra giao diện ui
     renderTableEmployees(listTableEmployee.arrayEmployees)
     setLocal()
-    successResult('Cập nhập nhân viên thành công')
-    getELE('btnDong').click()
-
+    successResult("Cập nhập thành công")
   }
+
 }
 getELE('btnCapNhat').addEventListener('click', handleUpdate)
 // tìm kiếm nhân viên
