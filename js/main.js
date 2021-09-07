@@ -38,6 +38,7 @@ function successResult(text) {
   }, 200);
   getELE('btnDong').click()
 }
+document.querySelector('body').style.overflowX = "hidden"
 // hàm lấy lấy các element trong html
 function getELE(value) {
   return document.getElementById(value)
