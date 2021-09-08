@@ -35,7 +35,7 @@ let valid = new validation()
 function successResult(text) {
   setTimeout(() => {
     alert(text)
-  }, 200);
+  }, 1000);
   getELE('btnDong').click()
 }
 document.querySelector('body').style.overflowX = "hidden"

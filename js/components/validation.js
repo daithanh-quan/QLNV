@@ -31,7 +31,6 @@ function validation() {
       document.getElementById(spanID).style.display = 'block'
       return false
     } else {
-      document.getElementById(spanID).innerHTML = ''
       return true
     }
   }
@@ -46,7 +45,6 @@ function validation() {
       document.getElementById(spanID).style.display = 'block'
       return false
     } else {
-      document.getElementById(spanID).innerHTML = ''
       return true
     }
   }
@@ -54,7 +52,6 @@ function validation() {
   this.checkName = function (inputValue, spanID, message) {
     let regex = new RegExp("^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\\s]+$")
     if (regex.test(inputValue)) {
-      document.getElementById(spanID).innerHTML = ''
       return true
     } else {
       document.getElementById(spanID).innerHTML = message
@@ -66,7 +63,6 @@ function validation() {
   this.checkEmail = function (inputValue, spanID, message) {
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if (regex.test(inputValue)) {
-      document.getElementById(spanID).innerHTML = ''
       return true
     } else {
       document.getElementById(spanID).innerHTML = message
@@ -78,7 +74,6 @@ function validation() {
   this.checkPass = function (inputValue, spanID, message) {
     let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,10}$/
     if (regex.test(inputValue)) {
-      document.getElementById(spanID).innerHTML = ''
       return true
     } else {
       document.getElementById(spanID).innerHTML = message
@@ -90,7 +85,6 @@ function validation() {
   this.checkDate = function (inputValue, spanID, message) {
     let regex = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/
     if (regex.test(inputValue)) {
-      document.getElementById(spanID).innerHTML = ''
       return true
     } else {
       document.getElementById(spanID).innerHTML = message
@@ -106,7 +100,6 @@ function validation() {
       document.getElementById(spanID).style.display = 'block'
       return false
     } else {
-      document.getElementById(spanID).innerHTML = ''
       return true
     }
   }
@@ -114,7 +107,6 @@ function validation() {
   this.checkPosition = function (setID, spanID, message) {
     let optionIndex = document.getElementById(setID).selectedIndex
     if (optionIndex != 0) {
-      document.getElementById(spanID).innerHTML = ''
       return true
     } else {
       document.getElementById(spanID).innerHTML = message
