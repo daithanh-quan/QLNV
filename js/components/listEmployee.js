@@ -15,7 +15,7 @@
  * B3: tạo biến result = valueLower.indexOf(loweKey)
  * B4: nếu result < 0 return, newArrayEmploy.push(item)
  */
-function listEmployee() {
+function ListEmployee() {
   this.arrayEmployees = []
   // thêm các giá trị thuộc tính vào mảng arrayEmployees
   this.addListTableEmployee = function (infoEmployee) {

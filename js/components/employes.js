@@ -1,5 +1,5 @@
 
-function employee(account, name, email, pass, date, salary, position, time) {
+function Employee(account, name, email, pass, date, salary, position, time) {
   this.account = account;
   this.name = name;
   this.email = email;

@@ -22,7 +22,7 @@
  */
 
 
-function validation() {
+function Validation() {
 
   //kiểm tra trống
   this.checkEmpty = function (inputValue, spanID, message) {

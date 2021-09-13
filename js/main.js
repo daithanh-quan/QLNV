@@ -29,8 +29,8 @@
 
 
 //class component dùng chung
-let listTableEmployee = new listEmployee()
-let valid = new validation()
+let listTableEmployee = new ListEmployee()
+let valid = new Validation()
 //biến text thành công khi thêm nhân viên/cập nhập nhân viên
 function successResult(text) {
   setTimeout(() => {
@@ -142,7 +142,7 @@ function handleAddUser() {
   let isNewValid2 = isValid()
   let isNewValid1 = isValidAccount()
   if (isNewValid1 && isNewValid2) {
-    let employment = new employee(inputAccount, inputName, inputEmail, inputPass, inputDate, inputSalary, inputPosition, inputTimeJob)
+    let employment = new Employee(inputAccount, inputName, inputEmail, inputPass, inputDate, inputSalary, inputPosition, inputTimeJob)
     employment.ratingEmployee = employment.rating()
     //tính lương
     employment.totalSalary = sum(employment.basicSalary).toLocaleString()
@@ -211,7 +211,7 @@ function handleUpdate() {
   getELE('tknv').disabled = true
   let isNewValid = isValid()
   if (isNewValid) {
-    let employment = new employee(inputAccount, inputName, inputEmail, inputPass, inputDate, inputSalary, inputPosition, inputTimeJob)
+    let employment = new Employee(inputAccount, inputName, inputEmail, inputPass, inputDate, inputSalary, inputPosition, inputTimeJob)
     employment.ratingEmployee = employment.rating()
     //tính lương
     employment.totalSalary = sum(employment.basicSalary).toLocaleString()
